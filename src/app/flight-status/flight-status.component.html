@@ -1,0 +1,43 @@
+
+<p>Welcome to the Flight Status Component!</p>
+
+<button (click)="logout()">Logout</button>
+
+<form (ngSubmit)="onSubmit()" #flightForm="ngForm">
+  <div>
+    <label for="flightNumber">Flight Number:</label>
+    <select id="flightNumber" name="flightNumber" [(ngModel)]="flightStatus.flightNumber">
+      <option *ngFor="let flightNumber of flightNumbers" [value]="flightNumber">{{ flightNumber }}</option>
+    </select>
+    
+  </div>
+  <div>
+    <label for="departureTime">Departure Time:</label>
+    <input type="datetime-local" id="departureTime" name="departureTime" required [(ngModel)]="flightStatus.departureTime">
+  </div>
+  <div>
+    <label for="arrivalTime">Arrival Time:</label>
+    <input type="datetime-local" id="arrivalTime" name="arrivalTime" required [(ngModel)]="flightStatus.arrivalTime">
+  </div>
+  <div>
+    <label for="status">Status:</label>
+    <select id="status" name="status" required [(ngModel)]="flightStatus.status">
+      <option value="On Time">On Time</option>
+      <option value="Delayed">Delayed</option>
+      <option value="Cancelled">Cancelled</option>
+    </select>
+  </div>
+  <br>
+  <button type="submit">Submit</button>
+</form>
+
+<h2>Flight Statuses</h2>
+
+<ul>
+  <li *ngFor="let status of flightStatuses">
+    <p>Flight Number: {{ status.flightNumber }}</p>
+    <p>Departure Time: {{ status.departureTime | date:'short' }}</p>
+    <p>Arrival Time: {{ status.arrivalTime | date:'short' }}</p>
+    <p>Status: {{ status.status }}</p>
+  </li>
+</ul>
