@@ -1,7 +1,13 @@
 
-<p>Welcome to the Flight Status Component!</p>
+<br>
 
-<button (click)="logout()">Logout</button>
+
+<div class="logout">
+  <button (click)="logout()">Logout</button>
+</div>
+
+<br>
+<br>
 
 <form (ngSubmit)="onSubmit()" #flightForm="ngForm">
   <div>
@@ -11,6 +17,23 @@
     </select>
     
   </div>
+
+  <div>
+    <label for="toAddress">To :</label>
+    <select id="toAddress" name="toAddress" [(ngModel)]="flightStatus.toAddress">
+      <option *ngFor="let toAddress of toAddresses" [value]="toAddress">{{ toAddress }}</option>
+    </select>
+    
+  </div>
+
+  <div>
+    <label for="toAddress">From :</label>
+    <select id="toAddress" name="toAddress" [(ngModel)]="flightStatus.toAddress">
+      <option *ngFor="let toAddress of toAddresses" [value]="toAddress">{{ toAddress }}</option>
+    </select>
+    
+  </div>
+
   <div>
     <label for="departureTime">Departure Time:</label>
     <input type="datetime-local" id="departureTime" name="departureTime" required [(ngModel)]="flightStatus.departureTime">

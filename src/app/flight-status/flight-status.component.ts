@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 
 interface FlightStatus {
   flightNumber: string;
+  toAddress : string;
   departureTime: Date;
   arrivalTime: Date;
   status: string;
@@ -17,6 +18,8 @@ interface FlightStatus {
 })
 export class FlightStatusComponent implements OnInit {
   flightStatus: FlightStatus = {
+
+    toAddress:'',
     flightNumber: '',
   departureTime: new Date(),
   arrivalTime: new Date(),
@@ -27,11 +30,15 @@ export class FlightStatusComponent implements OnInit {
 
   flightNumbers: string[] = [];
 
+    toAddresses: string[] = [];
+
+
   constructor(private http: HttpClient, private loginService: LoginService, private router: Router) { }
 
   ngOnInit(): void {
     this.getFlightStatuses();
     this.getFlightNumbers();
+    this.getToAddresses();
 
   }
   
@@ -47,12 +54,24 @@ export class FlightStatusComponent implements OnInit {
   }
   
 
+  getToAddresses(): void {
+    this.http.get<string[]>('http://localhost:8080/api/toAddress').subscribe(
+      (data: string[]) => {
+        this.toAddresses = data;
+      },
+      (error: HttpErrorResponse) => {
+        console.error(error);
+      }
+    );
+  }
+
 
 
   onSubmit() {
     this.http.post<FlightStatus>('http://localhost:8080/api/flight-status', this.flightStatus).subscribe(() => {
       this.getFlightStatuses();
       this.flightStatus = {
+        toAddress:'',
         flightNumber: '',
   departureTime: new Date(),
   arrivalTime: new Date(),
