@@ -1,13 +1,11 @@
 <h2>Flight Statuses</h2>
 
-<br>
 
 <div class="logout">
   <button (click)="logout()">Logout</button>
 </div>
 
-<br>
-<br>
+
 
 <!-- Display latest flight status -->
 <div class="latest-flight" *ngIf="flightStatus">
@@ -18,7 +16,7 @@
 </div>
 
 <!-- Show more button -->
-<button *ngIf="!showAllStatuses" (click)="showAllStatuses = true">Show more</button>
+<button *ngIf="!showAllStatuses" (click)="toggleShowAllStatuses()">Show more</button>
 
 <!-- Display all flight statuses if showAllStatuses is true -->
 <ul *ngIf="showAllStatuses">

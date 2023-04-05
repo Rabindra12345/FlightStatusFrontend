@@ -1,70 +1,82 @@
-/* Style for the Logout button */
-.logout-btn {
-    padding: 10px 20px;
-    background-color: #008CBA;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  /* Style for the flight details container */
-  .flight-details {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 20px;
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  /* Style for the flight details properties */
-  .flight-details p {
-    margin: 5px 0;
-    font-size: 18px;
-    text-align: center;
-  }
-  
-  /* Style for the flight details title */
-  .flight-details h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-    text-align: center;
-  }
-  
-  /* Style for the "More" button */
-  .more-btn {
-    background-color: #008CBA;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 20px;
-    padding: 10px 20px;
-  }
-  
-  /* Style for the "More" button when it's hidden */
-  .hide-btn {
-    display: none;
-  }
-  
-  /* Style for the "Less" button */
-  .less-btn {
-    background-color: #008CBA;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 20px;
-    padding: 10px 20px;
-  }
-  
-  /* Style for the flight details container when it's hidden */
-  .hide-container {
-    display: none;
-  }
-  
+/* Set font family and size */
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+
+/* Center the title */
+h2 {
+  text-align: center;
+}
+
+/* Style the logout button */
+.logout {
+  text-align: right;
+}
+
+.logout button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Style the latest flight box */
+.latest-flight {
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+/* Style the flight parameters */
+.latest-flight p {
+  display: inline-block;
+  width: 25%;
+  margin: 0;
+  color: #333;
+  font-weight: bold;
+}
+
+.latest-flight p:nth-child(2n) {
+  text-align: right;
+}
+
+/* Style the show more button */
+button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Style the flight status list */
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Style the flight status item */
+li {
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+/* Style the flight status parameters */
+li p {
+  margin: 0;
+  color: #333;
+  font-weight: bold;
+}
