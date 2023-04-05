@@ -10,13 +10,15 @@ import { FlightStatusComponent } from './flight-status/flight-status.component';
 import { AuthGuard } from './auth.guard';
 import { LoginService } from './login.service';
 import { FlightStatusReturnDataComponent } from './flight-status-return-data/flight-status-return-data.component';
+import { FlightDetailsComponent } from './flight-details/flight-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     FlightStatusComponent,
-    FlightStatusReturnDataComponent
+    FlightStatusReturnDataComponent,
+    FlightDetailsComponent
   ],
   imports: [
     BrowserModule,

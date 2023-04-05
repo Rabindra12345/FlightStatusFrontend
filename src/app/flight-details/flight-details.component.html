@@ -1,0 +1,34 @@
+<h2>Flight Statuses</h2>
+
+<br>
+
+<div class="logout">
+  <button (click)="logout()">Logout</button>
+</div>
+
+<br>
+<br>
+
+<!-- Display latest flight status -->
+<div class="latest-flight" *ngIf="flightStatus">
+  <p>Flight Number: {{ flightStatus.flightNumber }}</p>
+  <p>Departure Time: {{ flightStatus.departureTime | date:'short' }}</p>
+  <p>Arrival Time: {{ flightStatus.arrivalTime | date:'short' }}</p>
+  <p>Status: {{ flightStatus.status }}</p>
+</div>
+
+<!-- Show more button -->
+<button *ngIf="!showAllStatuses" (click)="showAllStatuses = true">Show more</button>
+
+<!-- Display all flight statuses if showAllStatuses is true -->
+<ul *ngIf="showAllStatuses">
+  <li *ngFor="let status of flightStatuses">
+    <p>Flight Number: {{ status.flightNumber }}</p>
+    <p>Departure Time: {{ status.departureTime | date:'short' }}</p>
+    <p>Arrival Time: {{ status.arrivalTime | date:'short' }}</p>
+    <p>Status: {{ status.status }}</p>
+  </li>
+</ul>
+
+<!-- Show less button -->
+<button *ngIf="showAllStatuses" (click)="showAllStatuses = false">Show less</button>

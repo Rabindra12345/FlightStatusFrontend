@@ -27,12 +27,21 @@
   </div>
 
   <div>
+    <label for="fromAddress">From :</label>
+    <select id="fromAddress" name="fromAddress" [(ngModel)]="flightStatus.fromAddress">
+      <option *ngFor="let fromAddress of fromAddresses" [value]="fromAddress">{{ fromAddress }}</option>
+    </select>
+  </div>
+
+  <!-- <div>
     <label for="toAddress">From :</label>
     <select id="toAddress" name="toAddress" [(ngModel)]="flightStatus.toAddress">
       <option *ngFor="let toAddress of toAddresses" [value]="toAddress">{{ toAddress }}</option>
     </select>
     
-  </div>
+  </div> -->
+  
+  
 
   <div>
     <label for="departureTime">Departure Time:</label>
@@ -54,7 +63,7 @@
   <button type="submit">Submit</button>
 </form>
 
-<h2>Flight Statuses</h2>
+<!-- <h2>Flight Statuses</h2>
 
 <ul>
   <li *ngFor="let status of flightStatuses">
@@ -63,4 +72,4 @@
     <p>Arrival Time: {{ status.arrivalTime | date:'short' }}</p>
     <p>Status: {{ status.status }}</p>
   </li>
-</ul>
+</ul> -->

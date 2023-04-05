@@ -4,6 +4,7 @@ import { LoginService } from '../login.service';
 import { Router } from '@angular/router';
 
 interface FlightStatus {
+fromAddress: string;
   flightNumber: string;
   toAddress : string;
   departureTime: Date;
@@ -21,6 +22,7 @@ export class FlightStatusComponent implements OnInit {
 
     toAddress:'',
     flightNumber: '',
+    fromAddress: '',
   departureTime: new Date(),
   arrivalTime: new Date(),
   status: 'On Time'
@@ -32,6 +34,9 @@ export class FlightStatusComponent implements OnInit {
 
     toAddresses: string[] = [];
 
+    fromAddresses: string[] = [];
+
+
 
   constructor(private http: HttpClient, private loginService: LoginService, private router: Router) { }
 
@@ -39,6 +44,7 @@ export class FlightStatusComponent implements OnInit {
     this.getFlightStatuses();
     this.getFlightNumbers();
     this.getToAddresses();
+    this.getFromAddresses();
 
   }
   
@@ -64,7 +70,16 @@ export class FlightStatusComponent implements OnInit {
       }
     );
   }
-
+  getFromAddresses(): void {
+    this.http.get<string[]>('http://localhost:8080/api/toAddress').subscribe(
+      (data: string[]) => {
+        this.fromAddresses = data;
+      },
+      (error: HttpErrorResponse) => {
+        console.error(error);
+      }
+    );
+  }
 
 
   onSubmit() {
@@ -72,11 +87,18 @@ export class FlightStatusComponent implements OnInit {
       this.getFlightStatuses();
       this.flightStatus = {
         toAddress:'',
+        fromAddress:'',
         flightNumber: '',
   departureTime: new Date(),
   arrivalTime: new Date(),
   status: 'On Time'
       };
+
+        // Save flight details to database
+      
+        // Navigate to FlightDetails component with query parameters
+        this.router.navigate(['/flight-details'], { queryParams: { flightNumber: this.flightStatus.flightNumber, departureTime: this.flightStatus.departureTime } });
+      
     });
   }
 
